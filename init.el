@@ -12,6 +12,10 @@
  t)
 (package-initialize)
 
+;; M-x ns-popup-font-panel
+;; M-x describe-font
+(set-default-font "-*-Roboto Mono for Powerline-normal-normal-normal-*-12-*-*-*-m-0-iso10646-1")
+
 (desktop-save-mode t)
 (setq ns-pop-up-frames nil)
 (setq echo-keystrokes 0.1)
