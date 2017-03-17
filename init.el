@@ -47,3 +47,7 @@
 (ido-everywhere 1)
 (require 'ido-ubiquitous)
 (ido-ubiquitous-mode 1)
+
+(global-diff-hl-mode t)
+(diff-hl-flydiff-mode t)
+(add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh)
