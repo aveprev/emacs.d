@@ -1,26 +1,51 @@
 (tool-bar-mode 0)
 (menu-bar-mode 0)
 (scroll-bar-mode 0)
+(desktop-save-mode t)
 
 (setq custom-file "~/.emacs.d/custom.el")
 (load custom-file)
 
 (require 'package)
-(add-to-list
- 'package-archives
- '("melpa" . "http://melpa.org/packages/")
- t)
+(setq
+ package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
+                    ("org" . "http://orgmode.org/elpa/")
+                    ("melpa" . "http://melpa.org/packages/")
+                    ("melpa-stable" . "http://stable.melpa.org/packages/"))
+ package-archive-priorities '(("melpa-stable" . 1)))
 (package-initialize)
+(when (not package-archive-contents)
+  (package-refresh-contents)
+  (package-install 'use-package))
+(require 'use-package)
+
+(use-package magit
+  :ensure t)
+(use-package powerline
+  :ensure t)
+(use-package moe-theme
+  :ensure t)
+(use-package ido-ubiquitous
+  :ensure t)
+(use-package diff-hl
+  :ensure t)
+(use-package ensime
+             :ensure t
+             :pin melpa-stable)
 
 ;; M-x ns-popup-font-panel
 ;; M-x describe-font
 (set-default-font "-*-Roboto Mono for Powerline-normal-normal-normal-*-12-*-*-*-m-0-iso10646-1")
 
-(desktop-save-mode t)
-(setq ns-pop-up-frames nil)
-(setq echo-keystrokes 0.1)
-(setq make-backup-files nil)
-(setq-default indent-tabs-mode nil)
+(setq
+ ns-pop-up-frames nil
+ echo-keystrokes 0.1
+ create-lockfiles nil
+ make-backup-files nil)
+(setq-default
+ indent-tabs-mode nil
+ tab-width 4
+ c-basic-offset 4)
 (show-paren-mode t)
 
 (setq linum-format "%4d ")

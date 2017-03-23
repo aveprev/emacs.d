@@ -5,7 +5,9 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(package-selected-packages (quote (magit diff-hl ido-ubiquitous moe-theme powerline))))
+ '(package-selected-packages
+   (quote
+    (use-package ensime magit diff-hl ido-ubiquitous moe-theme powerline))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
