@@ -23,8 +23,10 @@
   :ensure t)
 (use-package powerline
   :ensure t)
-(use-package moe-theme
-  :ensure t)
+;;(use-package moe-theme
+;;  :ensure t)
+(use-package nimbus-theme)
+
 (use-package ido-ubiquitous
   :ensure t)
 (use-package diff-hl
@@ -59,14 +61,14 @@
 (require 'saveplace)
 (setq-default save-place t)
 
-(require 'powerline)
-(require 'moe-theme)
+;;(require 'powerline)
+;;(require 'moe-theme)
 
 (setq moe-theme-highlight-buffer-id t)
 
-(powerline-moe-theme)
-(moe-theme-set-color 'green)
-(moe-dark)
+;;(powerline-moe-theme)
+;;(moe-theme-set-color 'green)
+;;(moe-dark)
 
 (ido-mode 1)
 (ido-everywhere 1)
@@ -76,3 +78,9 @@
 (global-diff-hl-mode t)
 (diff-hl-flydiff-mode t)
 (add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh)
+
+
+(defun kill-other-buffers ()
+  "Kill all other buffers."
+  (interactive)
+  (mapc 'kill-buffer (delq (current-buffer) (buffer-list))))
