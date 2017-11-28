@@ -84,3 +84,8 @@
   "Kill all other buffers."
   (interactive)
   (mapc 'kill-buffer (delq (current-buffer) (buffer-list))))
+
+
+(setenv "DICTIONARY" "en_US")
+(setq exec-path (append exec-path '("/usr/local/bin")))
+(setq ispell-program-name "hunspell")
