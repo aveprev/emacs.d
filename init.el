@@ -27,7 +27,7 @@
 ;;  :ensure t)
 (use-package nimbus-theme)
 
-(use-package ido-ubiquitous
+(use-package ido-completing-read+
   :ensure t)
 (use-package diff-hl
   :ensure t)
@@ -37,7 +37,8 @@
 
 ;; M-x ns-popup-font-panel
 ;; M-x describe-font
-(set-default-font "-*-Roboto Mono for Powerline-normal-normal-normal-*-12-*-*-*-m-0-iso10646-1")
+(if (eq system-type 'darwin)
+    (set-default-font "-*-Roboto Mono for Powerline-normal-normal-normal-*-12-*-*-*-m-0-iso10646-1"))
 
 (setq
  ns-pop-up-frames nil
@@ -72,7 +73,7 @@
 
 (ido-mode 1)
 (ido-everywhere 1)
-(require 'ido-ubiquitous)
+(require 'ido-completing-read+)
 (ido-ubiquitous-mode 1)
 
 (global-diff-hl-mode t)
@@ -89,3 +90,9 @@
 (setenv "DICTIONARY" "en_US")
 (setq exec-path (append exec-path '("/usr/local/bin")))
 (setq ispell-program-name "hunspell")
+
+(defadvice ido-find-file (after find-file-sudo activate)
+  "Find file as root if necessary."
+  (unless (and buffer-file-name
+               (file-writable-p buffer-file-name))
+    (find-alternate-file (concat "/sudo:root@localhost:" buffer-file-name))))
