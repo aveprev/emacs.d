@@ -63,6 +63,7 @@
 (diff-hl-flydiff-mode t)
 (add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh)
 
+(set-face-attribute 'region nil :background "gray50")
 
 (defun kill-other-buffers ()
   "Kill all other buffers."
