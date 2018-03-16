@@ -21,19 +21,11 @@
 
 (use-package magit
   :ensure t)
-(use-package powerline
-  :ensure t)
-;;(use-package moe-theme
-;;  :ensure t)
 (use-package nimbus-theme)
-
 (use-package ido-completing-read+
   :ensure t)
 (use-package diff-hl
   :ensure t)
-(use-package ensime
-             :ensure t
-             :pin melpa-stable)
 
 ;; M-x ns-popup-font-panel
 ;; M-x describe-font
@@ -61,15 +53,6 @@
 
 (require 'saveplace)
 (setq-default save-place t)
-
-;;(require 'powerline)
-;;(require 'moe-theme)
-
-(setq moe-theme-highlight-buffer-id t)
-
-;;(powerline-moe-theme)
-;;(moe-theme-set-color 'green)
-;;(moe-dark)
 
 (ido-mode 1)
 (ido-everywhere 1)
