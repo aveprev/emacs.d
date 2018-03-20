@@ -88,3 +88,6 @@
 
 (require 'org-bullets)
 (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
+
+(eval-after-load "org"
+  '(require 'ox-md nil t))
