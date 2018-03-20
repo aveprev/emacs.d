@@ -89,6 +89,8 @@
 (require 'org-bullets)
 (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
 (add-hook 'org-mode-hook (lambda () (flyspell-mode 1)))
+(add-hook 'org-mode-hook (lambda () (auto-fill-mode 1)))
+(setq-default fill-column 120)
 
 (eval-after-load "org"
   '(require 'ox-md nil t))
