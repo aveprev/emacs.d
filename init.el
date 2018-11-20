@@ -21,16 +21,18 @@
 
 (use-package magit
   :ensure t)
-(use-package nimbus-theme)
+;; (use-package nimbus-theme)
 (use-package ido-completing-read+
   :ensure t)
 (use-package diff-hl
   :ensure t)
 
+(load-theme 'solarized t)
+
 ;; M-x ns-popup-font-panel
 ;; M-x describe-font
-(if (eq system-type 'darwin)
-    (set-default-font "-*-Roboto Mono for Powerline-normal-normal-normal-*-12-*-*-*-m-0-iso10646-1"))
+;;(if (eq system-type 'darwin)
+;;    (set-default-font "-*-Roboto Mono for Powerline-normal-normal-normal-*-12-*-*-*-m-0-iso10646-1"))
 
 (setq
  ns-pop-up-frames nil
@@ -43,8 +45,7 @@
  c-basic-offset 4)
 (show-paren-mode t)
 
-(setq linum-format "%4d ")
-(add-hook 'find-file-hook 'linum-mode)
+(global-display-line-numbers-mode)
 
 (require 'tramp)
 
