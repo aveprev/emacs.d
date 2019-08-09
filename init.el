@@ -72,9 +72,10 @@
   (mapc 'kill-buffer (delq (current-buffer) (buffer-list))))
 
 
-(setenv "DICTIONARY" "en_US")
-(setq exec-path (append exec-path '("/usr/local/bin")))
-(setq ispell-program-name "hunspell")
+(setq ispell-program-name "/usr/local/bin/hunspell")
+(setq ispell-local-dictionary "en_US")
+(setq ispell-local-dictionary-alist
+      '(("en_US" "[[:alpha:]]" "[^[:alpha:]]" "[']" nil nil nil utf-8)))
 
 (defadvice ido-find-file (after find-file-sudo activate)
   "Find file as root if necessary."
