@@ -34,6 +34,8 @@
 ;;(if (eq system-type 'darwin)
 ;;    (set-default-font "-*-Roboto Mono for Powerline-normal-normal-normal-*-12-*-*-*-m-0-iso10646-1"))
 
+(set-default-font "-*-Iosevka Nerd Font-normal-normal-normal-*-14-*-*-*-m-0-iso10646-1")
+
 (setq
  ns-pop-up-frames nil
  echo-keystrokes 0.1
