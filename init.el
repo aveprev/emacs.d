@@ -28,6 +28,7 @@
   :ensure t)
 
 (load-theme 'solarized t)
+(nyan-mode 1)
 
 ;; M-x ns-popup-font-panel
 ;; M-x describe-font
